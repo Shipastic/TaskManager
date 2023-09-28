@@ -4,14 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Text;
-using System.Threading.Tasks;
 using TaskManager.Api.Models.Abstractions;
 using TaskManager.Api.Models.Data;
 using TaskManager.Common.Models;
 
 namespace TaskManager.Api.Models.Services
 {
-    public class UserService : ICommonService<UserModel>
+    public class UserService : AbstractionService,  ICommonService<UserModel>
     {
         private readonly ApplicationContext _db;
         public UserService(ApplicationContext db)
@@ -123,17 +122,6 @@ namespace TaskManager.Api.Models.Services
             });
         }
 
-        private bool DoAction(Action action)
-        {
-            try
-            {
-                action.Invoke();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                return false;
-            }
-        }
+       
     }
 }

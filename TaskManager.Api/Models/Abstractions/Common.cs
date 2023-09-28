@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using TaskManager.Common.Models;
 
 namespace TaskManager.Api.Models
 {
@@ -15,6 +12,13 @@ namespace TaskManager.Api.Models
         public Common()
         {
             CreationDate = DateTime.Now;
+        }
+        public Common(CommonModel commonModel)
+        {
+            Name = commonModel.Name;
+            Description = commonModel.Description;
+            CreationDate = commonModel.CreationDate;
+            Photo = commonModel.Photo;
         }
     }
 }
