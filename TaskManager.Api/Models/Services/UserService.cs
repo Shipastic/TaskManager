@@ -128,6 +128,19 @@ namespace TaskManager.Api.Models.Services
             });
         }
 
-       
+        public UserModel Get(int id)
+        {
+            User userForUpdate = _db.Users.FirstOrDefault(u => u.Id == id);
+            return userForUpdate?.ToDto();
+        }
+
+        public IEnumerable<UserModel> GetAllByIds(List<int> userIds)
+        {
+            foreach (int id in userIds)
+            {
+                var user = _db.Users.FirstOrDefault(u => u.Id == id).ToDto();
+                yield return user;
+            }
+        }
     }
 }

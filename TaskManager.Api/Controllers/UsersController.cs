@@ -31,7 +31,7 @@ namespace TaskManager.Api.Controllers
         [AllowAnonymous]
         public IActionResult TesApi()
         {
-            return Ok("Hello");
+            return Ok("Server started in" + DateTime.Now);
         }
 
         [HttpPost]
