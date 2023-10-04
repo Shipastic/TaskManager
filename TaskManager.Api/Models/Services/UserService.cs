@@ -41,6 +41,12 @@ namespace TaskManager.Api.Models.Services
             return user;
         }
 
+        public User GetUser(string login)
+        {
+            var user = _db.Users.FirstOrDefault(u => u.Email == login);
+            return user;
+        }
+
         public ClaimsIdentity GetIdentity(string username, string password)
         {
             User currentUSer = GetUser(username, password);

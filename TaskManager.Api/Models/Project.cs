@@ -21,5 +21,19 @@ namespace TaskManager.Api.Models
             AdminId = projectModel.AdminId;
             Status = projectModel.Status;
         }
+
+        public ProjectModel ToDto()
+        {
+            return new ProjectModel()
+            {
+                Id = this.Id,
+                Name = this.Name,
+                Description = this.Description,
+                AdminId = this.AdminId,
+                Status = this.Status,
+                CreationDate = this.CreationDate,
+                Photo = this.Photo,
+            };
+        }
     }
 }

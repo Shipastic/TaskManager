@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -66,9 +67,9 @@ namespace TaskManager.Api.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<UserModel> GetUsers()
+        public async Task<IEnumerable<UserModel>> GetUsers()
         {
-            return _db.Users.Select(u => u.ToDto());
+            return await _db.Users.Select(u => u.ToDto()).ToListAsync();
         }
 
         [HttpPost("all")]
