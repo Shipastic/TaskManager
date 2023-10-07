@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using TaskManager.Common.Models;
+using Newtonsoft.Json;
 
 namespace TaskManager.Api.Models
 {
@@ -12,5 +14,33 @@ namespace TaskManager.Api.Models
         public Project Project { get; set; }
         public int ProjectId { get; set; }
         public List<Task> Tasks { get; set; } = new List<Task>();
+
+        public DeskModel ToDto()
+        {
+            return new DeskModel()
+            {
+                Id = this.Id,
+                Name = this.Name,
+                Description = this.Description,
+                AdminId = this.AdminId,
+                CreationDate = this.CreationDate,
+                Photo = this.Photo,
+                ProjectId = this.ProjectId,
+                IsPrivate = this.IsPrivate,
+                Columns = JsonConvert.DeserializeObject<string[]>(this.Columns)
+            };
+        }
+
+        public Desk() { }
+
+        public Desk(DeskModel deskModel) : base(deskModel)
+        {
+            Id = deskModel.Id;
+            AdminId = deskModel.AdminId;
+            IsPrivate = deskModel.IsPrivate;
+            AdminId = deskModel.AdminId;
+            ProjectId = deskModel.ProjectId;
+            Columns = JsonConvert.SerializeObject(deskModel.Columns);
+        }
     }
 }
