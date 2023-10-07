@@ -42,8 +42,13 @@ namespace TaskManager.Api.Models.Services
 
         public ProjectModel Get(int id)
         {
-            Project newProject = _db.Projects.FirstOrDefault(p => p.Id == id);
-            return newProject?.ToDto();
+            Project newProject = _db.Projects.Include(p => p.Users).FirstOrDefault(p => p.Id == id);
+            var projectModel = newProject?.ToDto();
+            if (projectModel != null)
+            {
+                projectModel.UsersIds = newProject.Users.Select(u => u.Id).ToList();
+            }
+            return projectModel;
         }
 
         public async Task<IEnumerable<ProjectModel>> GetByUserId(int userId)
@@ -65,20 +70,20 @@ namespace TaskManager.Api.Models.Services
             bool result = DoAction(delegate ()
             {
                 Project newProject = _db.Projects.FirstOrDefault(p => p.Id == id);
-                newProject.Name = newProject.Name;
-                newProject.Description = newProject.Description;
-                newProject.Photo = newProject.Photo;
-                newProject.Status = newProject.Status;
-                newProject.AdminId = newProject.AdminId;
+                newProject.Name = model.Name;
+                newProject.Description = model.Description;
+                newProject.Photo = model.Photo;
+                newProject.Status = model.Status;
+                newProject.AdminId = model.AdminId;
                 _db.Projects.Update(newProject);
                 _db.SaveChanges();
             });
             return result;
         }
 
-        public IQueryable<ProjectModel> GetAll()
+        public IQueryable<CommonModel> GetAll()
         {
-            return  _db.Projects.Select(p => p.ToDto());           
+            return  _db.Projects.Select(p => p.ToDto() as CommonModel);           
         }
 
         public void AddUsersToProject(int id, List<int> userIds)

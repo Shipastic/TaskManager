@@ -6,7 +6,7 @@ namespace TaskManager.Common.Models
     {
         public ProjectStatus Status { get; set; }
         public int? AdminId { get; set; }
-        public List<UserModel> Users { get; set; } = new List<UserModel>();
-        public List<DeskModel> Desk { get; set; } = new List<DeskModel>();
+        public List<int> UsersIds { get; set; }
+        public List<int> DesksIds{ get; set; }
     }
 }
