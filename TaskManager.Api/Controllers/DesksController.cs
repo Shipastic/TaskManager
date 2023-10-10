@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,11 +20,13 @@ namespace TaskManager.Api.Controllers
     {
         private readonly ApplicationContext _db;
         private readonly UserService _userService;
+        private readonly DesksService _desksService;
 
         public DesksController(ApplicationContext db)
         {
             _db = db;
             _userService = new UserService(db);
+            _desksService = new DesksService(db);
         }
 
 
@@ -31,39 +34,73 @@ namespace TaskManager.Api.Controllers
         public async Task<IEnumerable<CommonModel>> GetDesksForCurrentUser()
         {
             var user = _userService.GetUser(HttpContext.User.Identity.Name);
-
+            if (user != null)
+            {
+                return await _desksService.GetAll(user.Id).ToListAsync();
+            }
+            return Array.Empty<CommonModel>();
         }
 
 
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
-
+            var desk = _desksService.Get(id);
+            return desk == null ? NotFound() : Ok(desk);
         }
 
         [HttpGet("project/{projectId}")]
-        public IActionResult GetProjectDesks(int projectId)
+        public async Task<IEnumerable<CommonModel>> GetProjectDesks(int projectId)
         {
-
+            var user = _userService.GetUser(HttpContext.User.Identity.Name);
+            if (user != null)
+            {
+                return await _desksService.GetProjectDesks(projectId, user.Id).ToListAsync();
+            }
+            return Array.Empty<CommonModel>();
         }
 
 
         [HttpPost]
         public IActionResult Create([FromBody] DeskModel deskModel)
         {
-
+            var user = _userService.GetUser(HttpContext.User.Identity.Name);
+            if (user != null)
+            {
+                if (deskModel != null)
+                {
+                    bool result = _desksService.Create(deskModel);
+                    return result ? Ok() : NotFound();
+                }
+                return BadRequest();
+            }
+            return Unauthorized();
         }
 
 
         [HttpPatch("{id}")]
         public IActionResult Update(int id, [FromBody] DeskModel deskModel)
         {
+            var user = _userService.GetUser(HttpContext.User.Identity.Name);
+            if (user != null)
+            {
+                if (deskModel != null)
+                {
+                    bool result = _desksService.Update(id, deskModel);
+                    return result ? Ok() : NotFound();
+                }
+                return BadRequest();
+            }
+            return Unauthorized();
         }
 
 
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
+            bool result = _desksService.Delete(id);
+
+            return result ? Ok() : NotFound();
         }
     }
 }

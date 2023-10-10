@@ -44,7 +44,9 @@ namespace TaskManager.Api.Models.Services
 
         public DeskModel Get(int id)
         {
-            Desk desk = _db.Desks.Include(d => d.Tasks).FirstOrDefault(d => d.Id == id);
+            Desk desk = _db.Desks.Include(d => d.Tasks)
+                                 .FirstOrDefault(d => d.Id == id);
+
             var deskModel = desk?.ToDto();
             if (deskModel != null)
             {
@@ -71,15 +73,16 @@ namespace TaskManager.Api.Models.Services
             return result;
         }
 
-        public IQueryable<CommonModel> GetAll()
+        public IQueryable<CommonModel> GetAll(int userId)
         {
-            return _db.Desks.Select(d => d.ToDto() as CommonModel);
+            return _db.Desks.Where(d => d.AdminId == userId).Select(d => d.ToDto() as CommonModel); 
         }
 
         public IQueryable<CommonModel> GetProjectDesks(int projectId, int userId)
-        {
+        { 
             return _db.Desks.Where(d => (d.ProjectId == projectId && 
-                                  (d.AdminId == userId || d.IsPrivate == false))).Select(d => d.ToDto() as CommonModel);
+                                  (d.AdminId == userId || d.IsPrivate == false)))
+                            .Select(d => d.ToDto() as CommonModel);
         }
     }
 }

@@ -56,3 +56,7 @@ C:\Users\Денис\source\repos\TaskManager\TaskManager.Api\obj\Debug\net5.0\re
 C:\Users\Денис\source\repos\TaskManager\TaskManager.Api\obj\Debug\net5.0\TaskManager.Api.pdb
 C:\Users\Денис\source\repos\TaskManager\TaskManager.Api\obj\Debug\net5.0\TaskManager.Api.genruntimeconfig.cache
 C:\Users\Денис\source\repos\TaskManager\TaskManager.Api\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Денис\source\repos\TaskManager\TaskManager.Api\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\Денис\source\repos\TaskManager\TaskManager.Api\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\Денис\source\repos\TaskManager\TaskManager.Api\bin\Debug\net5.0\Newtonsoft.Json.dll
+C:\Users\Денис\source\repos\TaskManager\TaskManager.Api\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
