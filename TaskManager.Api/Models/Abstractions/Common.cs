@@ -17,7 +17,7 @@ namespace TaskManager.Api.Models
         {
             Name = commonModel.Name;
             Description = commonModel.Description;
-            CreationDate = commonModel.CreationDate;
+            CreationDate = DateTime.Now;
             Photo = commonModel.Photo;
         }
     }

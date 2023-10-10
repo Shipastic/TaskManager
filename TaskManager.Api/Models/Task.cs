@@ -1,4 +1,5 @@
 ﻿using System;
+using TaskManager.Common.Models;
 
 namespace TaskManager.Api.Models
 {
@@ -15,5 +16,37 @@ namespace TaskManager.Api.Models
         public User Creator { get; set; }
         public int? ExecutorId { get; set; }
 
+        public TaskModel ToDto()
+        {
+            return new TaskModel()
+            {
+                Id = this.Id,
+                Name = this.Name,
+                Description = this.Description,
+                CreationDate = this.CreationDate,
+                Photo = this.Photo,
+                StartDate = this.CreationDate,
+                EndDate = this.EndDate,
+                File = this.File,
+                DeskId = this.DeskId,
+                Column = this.Column,
+                CreatorId = this.CreatorId,
+                ExecutorId = this.ExecutorId
+            };
+        }
+
+        public Task() { }
+
+        public Task(TaskModel taskModel) : base(taskModel)
+        {
+            Id = taskModel.Id;
+            StartDate = taskModel.CreationDate;
+            EndDate = taskModel.EndDate;
+            File = taskModel.File;
+            DeskId = taskModel.DeskId;
+            Column = taskModel.Column;
+            CreatorId = taskModel.CreatorId;
+            ExecutorId = taskModel.ExecutorId;
+        }
     }
 }
