@@ -11,6 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskManager.Client", "TaskM
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManager.ClientTests", "TaskManager.ClientTests\TaskManager.ClientTests.csproj", "{11D61F5B-7449-43C6-995D-61B1D60AA9E4}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C50CA061-3A8A-463F-B01F-13CF5F8C1866}"
+	ProjectSection(SolutionItems) = preProject
+		Postman\files\TaskManager.postman_collection.json = Postman\files\TaskManager.postman_collection.json
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
