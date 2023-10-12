@@ -47,7 +47,7 @@ namespace TaskManager.Api.Models.Services
         public IQueryable<CommonModel> GetTaskForUser(int userId)
         {
             return _db.Tasks.Where(t => t.CreatorId == userId || t.ExecutorId == userId)
-                            .Select(t => t.ToDto() as CommonModel);
+                            .Select(t => t.ToShortDto() as CommonModel);
         }
 
         public bool Update(int id, TaskModel taskModel)
