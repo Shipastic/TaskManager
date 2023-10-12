@@ -60,3 +60,4 @@ C:\Users\Денис\source\repos\TaskManager\TaskManager.Api\bin\Debug\net5.0\Mi
 C:\Users\Денис\source\repos\TaskManager\TaskManager.Api\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Users\Денис\source\repos\TaskManager\TaskManager.Api\bin\Debug\net5.0\Newtonsoft.Json.dll
 C:\Users\Денис\source\repos\TaskManager\TaskManager.Api\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
+C:\Users\Денис\source\repos\TaskManager\TaskManager.Api\bin\Debug\net5.0\nunit.framework.dll

@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "wzkm8cF5U0FxMT/nNMvnvXvxHuPH/bkKv18C2A01XsEBmck5virW05RSHuMBnVIbRBnB/ngQ5iXCE1IY7Zruag==",
+  "dgSpecHash": "04fROl/mOmJCsbztdxK5A/ZBMaRq/3lV7Yv45m6D9Rys+6hY9dQ2By0mYo6uug6XPyX22ghVzOVQzqXEhad/Pw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Денис\\source\\repos\\TaskManager\\TaskManager.Common.Models\\TaskManager.Common.Models.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Денис\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Денис\\.nuget\\packages\\netstandard.library\\2.0.0\\netstandard.library.2.0.0.nupkg.sha512",
+    "C:\\Users\\Денис\\.nuget\\packages\\nunit\\3.13.3\\nunit.3.13.3.nupkg.sha512"
+  ],
   "logs": []
 }
