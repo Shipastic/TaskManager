@@ -86,23 +86,18 @@ namespace TaskManager.Api.Models.Services
 
         public bool Update(int id, UserModel model)
         {
-            User userForUpdate = _db.Users.FirstOrDefault(u => u.Id == id);
-            if (userForUpdate != null)
+            return DoAction(delegate ()
             {
-
-                 DoAction(delegate ()
-                {
-                    userForUpdate.FirstName = model.FirstName;
-                    userForUpdate.LastName = model.LastName;
-                    userForUpdate.Email = model.Email;
-                    userForUpdate.Password = model.Password;
-                    userForUpdate.Status = model.Status;
-                    userForUpdate.Phone = model.Phone;
-                    _db.Users.Update(userForUpdate);
-                    _db.SaveChanges();
-                });
-            }
-            return false;
+                User userForUpdate = _db.Users.FirstOrDefault(u => u.Id == id);
+                userForUpdate.FirstName = model.FirstName;
+                userForUpdate.LastName = model.LastName;
+                userForUpdate.Email = model.Email;
+                userForUpdate.Password = model.Password;
+                userForUpdate.Status = model.Status;
+                userForUpdate.Phone = model.Phone;
+                _db.Users.Update(userForUpdate);
+                _db.SaveChanges();
+            });
         }
 
         public bool Delete(int id)
@@ -110,7 +105,7 @@ namespace TaskManager.Api.Models.Services
             User user = _db.Users.FirstOrDefault(u => u.Id == id);
             if (user != null)
             {
-                 DoAction(delegate ()
+                 return DoAction(delegate ()
                  {
                      _db.Users.Remove(user);
                      _db.SaveChanges();
@@ -118,6 +113,7 @@ namespace TaskManager.Api.Models.Services
             }
             return false;
         }
+
         public bool CreateMultipleUsers(List<UserModel> userModels)
         {
             return DoAction(delegate ()

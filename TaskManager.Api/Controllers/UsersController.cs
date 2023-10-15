@@ -59,7 +59,7 @@ namespace TaskManager.Api.Controllers
         }
 
         [HttpDelete("{id}")]
-        public IActionResult DeleteeUser(int id)
+        public IActionResult DeleteUser(int id)
         {
             bool result = _userService.Delete(id);
 

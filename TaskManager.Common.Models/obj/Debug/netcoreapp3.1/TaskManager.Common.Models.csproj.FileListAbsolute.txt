@@ -1,7 +1,6 @@
 C:\Users\Денис\source\repos\TaskManager\TaskManager.Common.Models\bin\Debug\netcoreapp3.1\TaskManager.Common.Models.deps.json
 C:\Users\Денис\source\repos\TaskManager\TaskManager.Common.Models\bin\Debug\netcoreapp3.1\TaskManager.Common.Models.dll
 C:\Users\Денис\source\repos\TaskManager\TaskManager.Common.Models\bin\Debug\netcoreapp3.1\TaskManager.Common.Models.pdb
-C:\Users\Денис\source\repos\TaskManager\TaskManager.Common.Models\obj\Debug\netcoreapp3.1\TaskManager.Common.Models.csproj.AssemblyReference.cache
 C:\Users\Денис\source\repos\TaskManager\TaskManager.Common.Models\obj\Debug\netcoreapp3.1\TaskManager.Common.Models.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Денис\source\repos\TaskManager\TaskManager.Common.Models\obj\Debug\netcoreapp3.1\TaskManager.Common.Models.AssemblyInfoInputs.cache
 C:\Users\Денис\source\repos\TaskManager\TaskManager.Common.Models\obj\Debug\netcoreapp3.1\TaskManager.Common.Models.AssemblyInfo.cs
