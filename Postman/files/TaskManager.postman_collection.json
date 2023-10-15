@@ -892,13 +892,10 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:40464/api/account/token",
+					"raw": "http://localhost:40464/api/account/token",
 					"protocol": "http",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"localhost"
 					],
 					"port": "40464",
 					"path": [
