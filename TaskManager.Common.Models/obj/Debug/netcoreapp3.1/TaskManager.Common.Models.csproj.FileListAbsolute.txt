@@ -7,3 +7,4 @@ C:\Users\Денис\source\repos\TaskManager\TaskManager.Common.Models\obj\Debug
 C:\Users\Денис\source\repos\TaskManager\TaskManager.Common.Models\obj\Debug\netcoreapp3.1\TaskManager.Common.Models.csproj.CoreCompileInputs.cache
 C:\Users\Денис\source\repos\TaskManager\TaskManager.Common.Models\obj\Debug\netcoreapp3.1\TaskManager.Common.Models.dll
 C:\Users\Денис\source\repos\TaskManager\TaskManager.Common.Models\obj\Debug\netcoreapp3.1\TaskManager.Common.Models.pdb
+C:\Users\Денис\source\repos\TaskManager\TaskManager.Common.Models\obj\Debug\netcoreapp3.1\TaskManager.Common.Models.csproj.AssemblyReference.cache
