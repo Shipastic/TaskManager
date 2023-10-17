@@ -18,34 +18,7 @@ namespace TaskManager.Client.Services
                                       string userName = null, 
                                       string password = null, 
                                       Dictionary<string, string> parameters = null)
-        {
-            //string result = string.Empty;
-            //HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(url);
-            //request.Method = method.Method;
-
-            //if (userName != null && password != null)
-            //{
-            //    string encoded = Convert.ToBase64String(Encoding.GetEncoding("ISO-8859-1").GetBytes(userName + ":" + password));
-            //    request.Headers.Add("Authorization", "Basic " + encoded);
-            //}
-            //else
-            //{
-            //    if (token != null)
-            //    {
-            //        request.Headers.Add("Authorization", "Bearer " + token.access_token);
-            //    }
-            //}
-
-            //HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-            //using (StreamReader reader = new StreamReader(response.GetResponseStream(), Encoding.UTF8))
-            //{
-            //    string responseStr = reader.ReadToEnd();
-            //    result = responseStr;
-            //}
-            //return result;
-
-            ////////////////////////////////////////////////////
-            
+        {                      
             WebClient client = new WebClient();
             if (userName != null && password != null)
             {

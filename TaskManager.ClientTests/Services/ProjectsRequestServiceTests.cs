@@ -16,17 +16,17 @@ namespace TaskManager.Client.Services.Tests
     {
         private AuthToken _token;
 
-        private ProjectsRequestService _sevice;
+        private ProjectsRequestService _service;
         public ProjectsRequestServiceTests()
         {
             _token = new UsersRequestService().GetToken("admin", "apolda25");
-            _sevice = new ProjectsRequestService();
+            _service = new ProjectsRequestService();
         }
 
         [TestMethod()]
         public void GetProjectsTest()
         {
-            var projects = _sevice.GetProjects(_token);
+            var projects = _service.GetProjects(_token);
 
             Console.WriteLine(projects.Count);
 
@@ -36,7 +36,7 @@ namespace TaskManager.Client.Services.Tests
         [TestMethod()]
         public void GetProjectByIdTest()
         {
-            var project = _sevice.GetProjectById(_token, 3);
+            var project = _service.GetProjectById(_token, 3);
 
             Assert.AreNotEqual(null, project);
         }
@@ -47,7 +47,7 @@ namespace TaskManager.Client.Services.Tests
             ProjectModel project = new ProjectModel("Test project", "New test project from tests", ProjectStatus.InProgress);
             project.AdminId = 1;
 
-            var result = _sevice.CreateProject(_token, project);
+            var result = _service.CreateProject(_token, project);
 
             Assert.AreEqual(HttpStatusCode.OK, result);
         }
@@ -57,7 +57,7 @@ namespace TaskManager.Client.Services.Tests
         {
             ProjectModel project = new ProjectModel("Test project updated", "New test project from tests. Update v2", ProjectStatus.Suspended);
             project.Id = 7;
-            var result = _sevice.UpdateProject(_token, project);
+            var result = _service.UpdateProject(_token, project);
 
             Assert.AreEqual(HttpStatusCode.OK, result);
         }
@@ -65,21 +65,21 @@ namespace TaskManager.Client.Services.Tests
         [TestMethod()]
         public void DeleteProjectTest()
         {
-            var result = _sevice.DeleteProject(_token, 7);
+            var result = _service.DeleteProject(_token, 7);
             Assert.AreEqual(HttpStatusCode.OK, result);
         }
 
         [TestMethod()]
         public void AddUsersToProjectTest()
         {
-            var result = _sevice.AddUsersToProject(_token, 6, new List<int>{24, 25});
+            var result = _service.AddUsersToProject(_token, 6, new List<int>{24, 25});
             Assert.AreEqual(HttpStatusCode.OK, result);
         }
 
         [TestMethod()]
         public void RemoveUsersFromProjectTest()
         {
-            var result = _sevice.RemoveUsersFromProject(_token, 6, new List<int> { 24 });
+            var result = _service.RemoveUsersFromProject(_token, 6, new List<int> { 24 });
             Assert.AreEqual(HttpStatusCode.OK, result);
         }
     }
