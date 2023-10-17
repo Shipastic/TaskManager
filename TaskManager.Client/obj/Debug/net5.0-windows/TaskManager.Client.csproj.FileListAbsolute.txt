@@ -36,3 +36,7 @@ C:\Users\Денис\source\repos\TaskManager\TaskManager.Client\obj\Debug\net5.0
 C:\Users\Денис\source\repos\TaskManager\TaskManager.Client\obj\Debug\net5.0-windows\ref\TaskManager.Client.dll
 C:\Users\Денис\source\repos\TaskManager\TaskManager.Client\obj\Debug\net5.0-windows\TaskManager.Client.pdb
 C:\Users\Денис\source\repos\TaskManager\TaskManager.Client\obj\Debug\net5.0-windows\TaskManager.Client.genruntimeconfig.cache
+C:\Users\Денис\source\repos\TaskManager\TaskManager.Client\obj\Debug\net5.0-windows\Resources\Styles\MainStyle.baml
+C:\Users\Денис\source\repos\TaskManager\TaskManager.Client\obj\Debug\net5.0-windows\Views\Login.g.cs
+C:\Users\Денис\source\repos\TaskManager\TaskManager.Client\obj\Debug\net5.0-windows\App.baml
+C:\Users\Денис\source\repos\TaskManager\TaskManager.Client\obj\Debug\net5.0-windows\Views\Login.baml
