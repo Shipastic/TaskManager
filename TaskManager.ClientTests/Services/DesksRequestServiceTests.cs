@@ -30,7 +30,7 @@ namespace TaskManager.Client.Services.Tests
 
             Console.WriteLine(desks.Count);
 
-            Assert.AreNotEqual(Array.Empty<DeskModel>(), desks);
+            Assert.AreNotEqual(Array.Empty<ProjectModel>(), desks);
         }
 
         [TestMethod()]

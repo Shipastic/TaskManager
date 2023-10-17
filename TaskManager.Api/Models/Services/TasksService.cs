@@ -62,9 +62,7 @@ namespace TaskManager.Api.Models.Services
                 task.StartDate = taskModel.CreationDate;
                 task.EndDate = taskModel.EndDate;
                 task.File = taskModel.File;
-                task.DeskId = taskModel.DeskId;
                 task.Column = taskModel.Column;
-                task.CreatorId = taskModel.CreatorId;
                 task.ExecutorId = taskModel.ExecutorId;
 
                 _db.Tasks.Update(task);
