@@ -24,7 +24,7 @@ namespace TaskManager.Client.Services
             return token;
         }
 
-        public UserModel GetCurrent(AuthToken token)
+        public UserModel GetCurrentUser(AuthToken token)
         {
             string response = GetDataByUrl(HttpMethod.Get, HOST + "account/info", token);
             UserModel user = JsonConvert.DeserializeObject<UserModel>(response);
