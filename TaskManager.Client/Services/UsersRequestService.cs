@@ -15,7 +15,6 @@ namespace TaskManager.Client.Services
     public class UsersRequestService : CommonRequestService
     {
         private string _userControllerUrl = HOST + "users";
-
         public AuthToken GetToken(string userName, string password)
         {
             string url = HOST + "account/token";
