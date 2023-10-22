@@ -40,3 +40,5 @@ C:\Users\Денис\source\repos\TaskManager\TaskManager.Client\obj\Debug\net5.0
 C:\Users\Денис\source\repos\TaskManager\TaskManager.Client\obj\Debug\net5.0-windows\Views\Login.g.cs
 C:\Users\Денис\source\repos\TaskManager\TaskManager.Client\obj\Debug\net5.0-windows\App.baml
 C:\Users\Денис\source\repos\TaskManager\TaskManager.Client\obj\Debug\net5.0-windows\Views\Login.baml
+C:\Users\Денис\source\repos\TaskManager\TaskManager.Client\obj\Debug\net5.0-windows\Views\Pages\UserInfoPage.g.cs
+C:\Users\Денис\source\repos\TaskManager\TaskManager.Client\obj\Debug\net5.0-windows\Views\Pages\UserInfoPage.baml

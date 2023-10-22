@@ -6,7 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using TaskManager.Client.Models;
+using TaskManager.Client.Views;
+using TaskManager.Client.Views.Pages;
 using TaskManager.Common.Models;
 
 namespace TaskManager.Client.ViewModels
@@ -24,10 +27,11 @@ namespace TaskManager.Client.ViewModels
         public DelegateCommand OpenUsersManagementCommand;
         #endregion
 
-        public MainWindowViewModel(AuthToken token, UserModel currentUser)
+        public MainWindowViewModel(AuthToken token, UserModel currentUser, Window currentWindow= null)
         {
             Token = token;
             CurrentUser = currentUser;
+            _currentWindow = currentWindow;
 
             OpenMyInfoPageCommand     = new DelegateCommand(OpenMyInfoPage);
             NavButtons.Add(_userInfoBtnName, OpenMyInfoPageCommand);
@@ -50,7 +54,7 @@ namespace TaskManager.Client.ViewModels
             LogoutCommand             = new DelegateCommand(Logout);
             NavButtons.Add(_logoutBtnName, LogoutCommand);
 
-
+            OpenMyInfoPage();
 
         }
         #region PROPERTIES
@@ -61,6 +65,8 @@ namespace TaskManager.Client.ViewModels
         private readonly string _userProjectsBtnName = "My projects";
 
         private readonly string _managaUsersBtnName  = "Users";
+
+        private Window _currentWindow;
 
         private AuthToken _token;
 
@@ -99,32 +105,69 @@ namespace TaskManager.Client.ViewModels
 
         }
 
+        private string _selectedPageName;
+
+        public string SelectedPageName
+        {
+            get =>_selectedPageName; 
+            set 
+            { 
+                _selectedPageName = value;
+                RaisePropertyChanged(nameof(SelectedPageName));
+            }
+        }
+
+        private Page _selectedPage;
+
+        public Page SelectedPage
+        {
+            get =>_selectedPage; 
+            set 
+            { 
+                _selectedPage = value;              
+                RaisePropertyChanged(nameof(SelectedPage));       
+            }
+        }
+
+
         #endregion
 
         #region METHODS
 
         private void OpenMyInfoPage()
         {
-            ShowMessage(_userInfoBtnName);
+            var page = new UserInfoPage();
+            page.DataContext = this;
+            OpenPage(page, _userInfoBtnName);
         }
 
         private void OpenMyDesksPage()
         {
+            SelectedPageName = _userDesksBtnName;
             ShowMessage(_userDesksBtnName);
         }
 
         private void OpenMyTasksPage()
         {
+            SelectedPageName = _userTasksBtnName;
             ShowMessage(_userTasksBtnName);
         }
 
         private void OpenMyProjectsPage()
         {
+            SelectedPageName = _userProjectsBtnName;
             ShowMessage(_userProjectsBtnName);
         }
         private void Logout()
         {
-            ShowMessage(_logoutBtnName);
+            var question = MessageBox.Show("Are you sure?", "Logout", MessageBoxButton.YesNo);
+            if (question == MessageBoxResult.Yes && _currentWindow != null)
+            {
+                Login login = new Login();
+                login.Show();
+                _currentWindow.Close();
+            }
+            
         }
 
         #endregion
@@ -137,6 +180,12 @@ namespace TaskManager.Client.ViewModels
         private void OpenUsersManagement()
         {
             ShowMessage(_managaUsersBtnName);
+        }
+
+        private void OpenPage(Page page, string pageName)
+        {
+            SelectedPageName = pageName;
+            SelectedPage = page;
         }
     }
 }
