@@ -235,7 +235,7 @@ namespace TaskManager.Api.Migrations
                         .IsRequired();
 
                     b.HasOne("TaskManager.Api.Models.Project", "Project")
-                        .WithMany("Desk")
+                        .WithMany("Desks")
                         .HasForeignKey("ProjectId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -289,7 +289,7 @@ namespace TaskManager.Api.Migrations
 
             modelBuilder.Entity("TaskManager.Api.Models.Project", b =>
                 {
-                    b.Navigation("Desk");
+                    b.Navigation("Desks");
                 });
 
             modelBuilder.Entity("TaskManager.Api.Models.ProjectAdmin", b =>
